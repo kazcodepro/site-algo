@@ -32,6 +32,10 @@ function Exo_4_1_jquery()
         tutu--;
     }
 }
+
+function envoiePHP() {
+    document.formSubmit.submit();
+}
     </script>
 
     <?php include "../commun/nav.html"; ?>
@@ -117,7 +121,7 @@ FIN
         <div class="exe-row">
             <button class="exe-btn js" onclick="Exo_4_1_js() ">JavaScript</button>
             <button class="exe-btn jquery" onclick="Exo_4_1_jquery()">jQuery</button>
-            <button class="exe-btn php">PHP</button>
+            <button class="exe-btn php" onclick="envoiePHP()">PHP</button>
         </div>
     </section>
     </div>
