@@ -62,6 +62,10 @@ function Exo_4_3_jquery()
 
     $("#text-area-result").val("JQUERY Dans une minute, il sera " + iHeures +" heure(s) " + (iMinutes) + " minutes(s) et " + iSecondes + " seconde(s)")
 }
+
+function envoiePHP() {
+    document.formSubmit.submit();
+}
     </script>
 
     <?php include "../commun/nav.html"; ?>
@@ -192,10 +196,12 @@ FIN
  
     <section>
 		<h2>INPUT</h2>
-        <input type="text" id="text-area-input" placeholder="Entrez une heure : ">
-        <input type="text" id="text-area-input2" placeholder="Entrez des minutes : ">
-        <input type="text" id="text-area-input3" placeholder="Entrez les secondes : ">
-        <input type="text" id="text-area-result" placeholder="Resultat">
+        <form action="exo3.php" method="POST" name="formSubmit">
+            <input type="text" id="text-area-input" name="text-area-input" placeholder="Entrez une heure : ">
+            <input type="text" id="text-area-input2" name="text-area-input2" placeholder="Entrez des minutes : ">
+            <input type="text" id="text-area-input3" name="text-area-input3" placeholder="Entrez les secondes : ">
+        </form>    
+        <input type="text" id="text-area-result" placeholder="Resultat" value="<?= $sMessage ?>">
     </section>
 
     <section>
@@ -203,7 +209,7 @@ FIN
         <div class="exe-row">
             <button class="exe-btn js" onclick="Exo_4_3_js() ">JavaScript</button>
             <button class="exe-btn jquery" onclick="Exo_4_3_jquery()">jQuery</button>
-            <button class="exe-btn php">PHP</button>
+            <button class="exe-btn php" onclick="envoiePHP()">PHP</button>
         </div>
     </section>
     </div>
