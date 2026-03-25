@@ -21,6 +21,10 @@ function Exo_2_4()
 
     document.querySelector("#text-area-result").value = sphraseFinal;
 }
+
+function envoiPHP() {
+    document.formSubmit.submit();
+}
     </script>
 
     <?php include "../commun/nav.html"; ?>
@@ -90,7 +94,9 @@ FIN
  
     <section>
 		<h2>INPUT</h2>
-        <textarea rows="4" id="text-area-result" placeholder="Resultat"></textarea>
+        <form action="exo4.php" method="POST" name="formSubmit">
+                <textarea rows="4" name="text-area-result" id="text-area-result" placeholder="Resultat"><?php echo $sPhraseFinal?> </textarea>
+        </form>
     </section>
  
     <section>
@@ -98,7 +104,7 @@ FIN
         <div class="exe-row">
             <button class="exe-btn js" onclick="Exo_2_4()">JavaScript</button>
             <button class="exe-btn jquery">jQuery</button>
-            <button class="exe-btn php">PHP</button>
+            <button class="exe-btn php" onClick="envoiPHP()">PHP</button>
         </div>
     </section>
     </div>
