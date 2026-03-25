@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 3.6</title>
+</head>
+<body>
+    <script>
+function Exo_3_6_js() 
+{
+    var iAge, sReponse;
+
+    iAge = document.querySelector("#text-area-input").value
+
+   
+    if (iAge >= 6 && iAge <= 7 ){
+    sReponse = "Poussin"
+    }
+    else if (iAge >= 8 && iAge <= 9 ){
+    sReponse = "Pupille"
+    }
+    else if (iAge >= 10 && iAge <= 11 ){
+    sReponse = "Minime"
+    }
+    else if (iAge >= 12 ) {
+    sReponse = "Cadet"
+    }
+
+    document.querySelector("#text-area-result").value = sReponse;
+}
+function Exo_3_6_jquery() 
+{
+    var iAge, sReponse;
+
+    iAge = $("#text-area-input").val()
+
+   
+    if (iAge >= 6 && iAge <= 7 ){
+    sReponse = "Poussin"
+    }
+    else if (iAge >= 8 && iAge <= 9 ){
+    sReponse = "Pupille"
+    }
+    else if (iAge >= 10 && iAge <= 11 ){
+    sReponse = "Minime"
+    }
+    else if (iAge >= 12 ) {
+    sReponse = "Cadet"
+    }
+
+
+    $("#text-area-result").val(sReponse);
+}
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text"> 
+
+Ecrire un algorithme qui demande l’âge d’un enfant à l’utilisateur. Ensuite, il l’informe de sa catégorie : <br>
+•"Poussin" de 6 à 7 ans <br>
+•"Pupille" de 8 à 9 ans <br>
+•"Minime" de 10 à 11 ans <br>
+•"Cadet" après 12 ans <br>
+Peut-on concevoir plusieurs algorithmes équivalents menant à ce résultat ? </p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_3_6_js() 
+{
+    var iAge, sReponse;
+
+    iAge = document.querySelector("#text-area-input").value
+
+   
+    if (iAge >= 6 && iAge <= 7 ){
+    sReponse = "Poussin"
+    }
+    else if (iAge >= 8 && iAge <= 9 ){
+    sReponse = "Pupille"
+    }
+    else if (iAge >= 10 && iAge <= 11 ){
+    sReponse = "Minime"
+    }
+    else if (iAge >= 12 ) {
+    sReponse = "Cadet"
+    }
+
+    document.querySelector("#text-area-result").value = sReponse;
+}
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_3_6_jquery() 
+{
+    var iAge, sReponse;
+
+    iAge = $("#text-area-input").val()
+
+   
+    if (iAge >= 6 && iAge <= 7 ){
+    sReponse = "Poussin"
+    }
+    else if (iAge >= 8 && iAge <= 9 ){
+    sReponse = "Pupille"
+    }
+    else if (iAge >= 10 && iAge <= 11 ){
+    sReponse = "Minime"
+    }
+    else if (iAge >= 12 ) {
+    sReponse = "Cadet"
+    }
+
+    $("#text-area-result").val(sReponse);
+}
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+VARIABLES iAge EN NUMERIQUE sReponse en CHAINE DE CARACTERES
+
+ECRIRE "Entrez un age : "
+LIRE iAge
+
+
+SI iAge >= 6 ET iAge <= 7 )
+sReponse = "Poussin"
+if (iAge >= 8 ET iAge <= 9 )
+sReponse = "Pupille"
+if (iAge >= 10 ET iAge <= 11 )
+sReponse = "Minime"
+if (iAge >= 12 )
+sReponse = "Cadet"
+FIN SI
+
+FIN
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <input type="text" id="text-area-input" placeholder="Entrez un age : ">
+        <input type="text" id="text-area-result" placeholder="Resultat">
+    </section>
+ 
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_3_6_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_3_6_jquery()">jQuery</button>
+            <button class="exe-btn php">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

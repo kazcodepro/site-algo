@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 3.3</title>
+</head>
+<body>
+    <script>
+function Exo_3_3_js() 
+{
+    var sNom1, sNom2, sNom3, sReponse;
+
+    sNom1 = document.querySelector("#text-area-input").value
+    sNom2 = document.querySelector("#text-area-input2").value
+    sNom3 = document.querySelector("#text-area-input3").value
+
+    if (sNom1 < sNom2 && sNom1 < sNom3 && sNom2 < sNom3) {
+        sReponse = "Positif"
+    } else {
+        sReponse = "Negatif"
+    }
+
+    document.querySelector("#text-area-result").value = sReponse;
+}
+function Exo_3_3_jquery() 
+{
+    var sNom1, sNom2, sNom3, sReponse;
+
+    sNom1 = $("#text-area-input").val()
+    sNom2 = $("#text-area-input2").val()
+    sNom3 = $("#text-area-input3").val()
+
+    console.log(sNom1 + sNom2 + sNom3)
+
+    if (sNom1 < sNom2 && sNom1 < sNom3 && sNom2 < sNom3) {
+        sReponse = "Positif"
+    } else {
+        sReponse = "Negatif"
+    }
+
+    $("#text-area-result").val(sReponse);
+}
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text"> Ecrire un algorithme qui demande trois noms à l’utilisateur et l’informe ensuite s’ils sont rangés ou non dans l’ordre 
+alphabétique. </p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_3_3_js() 
+{
+    var sNom1, sNom2, sNom3, sReponse;
+
+    sNom1 = document.querySelector("#text-area-input").value
+    sNom2 = document.querySelector("#text-area-input2").value
+    sNom3 = document.querySelector("#text-area-input3").value
+
+    if (sNom1 < sNom2 && sNom1 < sNom3 && sNom2 < sNom3) {
+        sReponse = "Positif"
+    } else {
+        sReponse = "Negatif"
+    }
+
+    document.querySelector("#text-area-result").value = sReponse;
+}
+
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_3_3_jquery() 
+{
+    var sNom1, sNom2, sNom3, sReponse;
+
+    sNom1 = $("#text-area-input").val()
+    sNom2 = $("#text-area-input2").val()
+    sNom3 = $("#text-area-input3").val()
+
+    console.log(sNom1 + sNom2 + sNom3)
+
+    if (sNom1 < sNom2 && sNom1 < sNom3 && sNom2 < sNom3) {
+        sReponse = "Positif"
+    } else {
+        sReponse = "Negatif"
+    }
+
+    $("#text-area-result").val(sReponse);
+}
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+VARIABLES sNom1, sNom2, sNom3, sReponse en CHAINE DE CARACTERES
+
+ECRIRE "Entrez un premier nom : "
+LIRE sNom1
+ECRIRE "Entrez un second nom : "
+LIRE sNom2
+ECRIRE "Entrez un troisième nom : "
+LIRE sNom3
+
+SI sNom1 < sNom2 ET sNom1 < sNom3 ET sNom2 < sNom3 ALORS
+sReponse = "Positif"
+SINON
+sReponse = "Négatif"
+FIN SI
+
+FIN
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <input type="text" id="text-area-input" placeholder="Entrez un premier nom : ">
+        <input type="text" id="text-area-input2" placeholder="Entrez un second nom : ">
+        <input type="text" id="text-area-input3" placeholder="Entrez un troisième nom : ">
+        <input type="text" id="text-area-result" placeholder="Resultat">
+    </section>
+ 
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_3_3_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_3_3_jquery()">jQuery</button>
+            <button class="exe-btn php">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

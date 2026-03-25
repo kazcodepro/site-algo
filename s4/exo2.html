@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 4.2</title>
+</head>
+<body>
+    <script>
+function Exo_4_2_js() 
+{
+    var iHeures, iMinutes;
+
+    iHeures = document.querySelector("#text-area-input").value;
+    iMinutes = document.querySelector("#text-area-input2").value;
+
+    iMinutes++;
+
+    if (iMinutes >= 60) {
+        iMinutes = 0;
+        iHeures ++;
+    }
+
+    if (iHeures >= 24) {
+        iHeures = 0;
+    }
+
+    document.querySelector("#text-area-result").value = "JS Dans une minute, il sera " + iHeures +" heure(s) " + (iMinutes)
+}
+
+function Exo_4_2_jquery() 
+{
+    var iHeures, iMinutes;
+
+    iHeures = $("#text-area-input").val();
+    iMinutes = $("#text-area-input2").val();
+
+    iMinutes++;
+
+    if (iMinutes >= 60) {
+        iMinutes = 0;
+        iHeures ++;
+    }
+
+    if (iHeures >= 24) {
+        iHeures = 0;
+    }
+
+    $("#text-area-result").val("JQUERY Dans une minute, il sera " + iHeures +" heure(s) " + (iMinutes))
+}
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text">
+Cet algorithme est destiné à prédire l'avenir, et il doit être infaillible ! <br>
+
+Il lira au clavier l’heure et les minutes, et il affichera l’heure qu’il sera une minute plus tard. Par exemple, si 
+l'utilisateur tape 21 puis 32, l'algorithme doit répondre : <br>
+
+"Dans une minute, il sera 21 heure(s) 33". <br>
+
+NB : on suppose que l'utilisateur entre une heure valide. Pas besoin donc de la vérifier. 
+</p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_4_2_js() 
+{
+    var iHeures, iMinutes;
+
+    iHeures = document.querySelector("#text-area-input").value;
+    iMinutes = document.querySelector("#text-area-input2").value;
+
+    iMinutes++;
+
+    if (iMinutes >= 60) {
+        iMinutes = 0;
+        iHeures ++;
+    }
+
+    if (iHeures >= 24) {
+        iHeures = 0;
+    }
+
+    document.querySelector("#text-area-result").value = "JS Dans une minute, il sera " + iHeures +" heure(s) " + (iMinutes)
+}
+
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_4_2_jquery() 
+{
+    var iHeures, iMinutes;
+
+    iHeures = $("#text-area-input").val();
+    iMinutes = $("#text-area-input2").val();
+
+    iMinutes++;
+
+    if (iMinutes >= 60) {
+        iMinutes = 0;
+        iHeures ++;
+    }
+
+    if (iHeures >= 24) {
+        iHeures = 0;
+    }
+
+    $("#text-area-result").val("Dans une minute, il sera " + iHeures +" heure(s) " + (iMinutes))
+}
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+
+    VARIABLES iHeures, iMinutes EN NUMERIQUE
+
+    ECRIRE "Entrez une heure : "
+    LIRE iHeures
+    ECRIRE "Entrez des minutes : "
+    LIRE iMinutes
+    iMinutes = iMinutes + 1
+
+    SI iMinutes >= 60 ALORS
+        iMinutes = 0
+        iHeures = iHeures + 1
+    FINSI
+
+    SI iHeures >= 24 ALORS
+        iHeures = 0
+    FINSI
+
+    ECRIRE "Dans une minute, il sera " + iHeures +" heure(s) " 
+
+FIN
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <input type="text" id="text-area-input" placeholder="Entrez une heure : ">
+        <input type="text" id="text-area-input2" placeholder="Entrez des minutes : ">
+        <input type="text" id="text-area-result" placeholder="Resultat">
+    </section>
+
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_4_2_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_4_2_jquery()">jQuery</button>
+            <button class="exe-btn php">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

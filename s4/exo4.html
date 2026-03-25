@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 4.4</title>
+</head>
+<body>
+    <script>
+function Exo_4_4_js() 
+{
+    var iArticles, iPrixTotal;
+    iPrixTotal = 0;
+
+    iArticles = document.querySelector("#text-area-input").value;
+
+    if ((iArticles <= 10) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.10);
+        iArticles = iArticles - iArticles;
+    }
+
+    if ((iArticles > 10) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (10 * 0.10);
+        iArticles = iArticles - 10;
+    }
+     
+    if ((iArticles <= 20) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.09);
+        iArticles = iArticles - iArticles;
+    }
+
+    if ((iArticles > 20) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (20 * 0.09);
+        iArticles = iArticles - 20;
+    }
+
+    if (iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.08);
+        iArticles -= iArticles;
+    }
+
+    document.querySelector("#text-area-result").value = "JS La facture de votre commande est de " + iPrixTotal + " E";
+}
+
+
+function Exo_4_4_jquery() 
+{
+    var iArticles, iPrixTotal;
+    iPrixTotal = 0;
+
+    iArticles = $("#text-area-input").val();
+
+    if ((iArticles <= 10) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.10);
+        iArticles = iArticles - iArticles;
+    }
+
+    if ((iArticles > 10) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (10 * 0.10);
+        iArticles = iArticles - 10;
+    }
+     
+    if ((iArticles <= 20) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.09);
+        iArticles = iArticles - iArticles;
+    }
+
+    if ((iArticles > 20) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (20 * 0.09);
+        iArticles = iArticles - 20;
+    }
+
+    if (iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.08);
+        iArticles -= iArticles;
+    }
+
+
+    $("#text-area-result").val("JQUERY La facture de votre commande est de " + iPrixTotal + " E");
+}
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text">Un magasin de reprographie facture 0,10 E les dix premières photocopies, 0,09 E les vingt suivantes et 0,08 E au-
+delà. Ecrivez un algorithme qui demande à l’utilisateur le nombre de photocopies effectuées et qui affiche la facture 
+correspondante. 
+</p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_4_4_js() 
+{
+    var iArticles, iPrixTotal;
+    iPrixTotal = 0;
+
+    iArticles = document.querySelector("#text-area-input").value;
+
+    if ((iArticles <= 10) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.10);
+        iArticles = iArticles - iArticles;
+    }
+
+    if ((iArticles > 10) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (10 * 0.10);
+        iArticles = iArticles - 10;
+    }
+     
+    if ((iArticles <= 20) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.09);
+        iArticles = iArticles - iArticles;
+    }
+
+    if ((iArticles > 20) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (20 * 0.09);
+        iArticles = iArticles - 20;
+    }
+
+    if (iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.08);
+        iArticles -= iArticles;
+    }
+
+    document.querySelector("#text-area-result").value = "JS La facture de votre commande est de " + iPrixTotal + " E";
+}
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_4_4_jquery() 
+{
+    var iArticles, iPrixTotal;
+    iPrixTotal = 0;
+
+    iArticles = $("#text-area-input").val();
+
+    if ((iArticles <= 10) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.10);
+        iArticles = iArticles - iArticles;
+    }
+
+    if ((iArticles > 10) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (10 * 0.10);
+        iArticles = iArticles - 10;
+    }
+     
+    if ((iArticles <= 20) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.09);
+        iArticles = iArticles - iArticles;
+    }
+
+    if ((iArticles > 20) && iArticles > 0) {
+        iPrixTotal = iPrixTotal + (20 * 0.09);
+        iArticles = iArticles - 20;
+    }
+
+    if (iArticles > 0) {
+        iPrixTotal = iPrixTotal + (iArticles * 0.08);
+        iArticles -= iArticles;
+    }
+
+
+    $("#text-area-result").val("JQUERY La facture de votre commande est de " + iPrixTotal + " E");
+}
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+
+    VARIABLES iArticles, iPrixTotal EN NUMERIQUE
+
+    ECRIRE "Entrez le nombre d'articles : "
+    LIRE iArticles
+
+    SI iArticles <= 10 ET iArticles > 0 ALORS
+        iPrixTotal += iArticles * 0.10
+        iArticles = iArticles - iArticles
+    FINSI
+
+    SI iArticles > 10 ET iArticles > 0 ALORS
+        iPrixTotal += iArticles * 0.10
+        iArticles = iArticles - 10
+    FINSI
+     
+    SI iArticles <= 20 ET iArticles > 0 ALORS
+        iPrixTotal += iArticles * 0.09
+        iArticles = iArticles - iArticles
+    FINSI
+
+    SI iArticles > 20 ET iArticles > 0 ALORS
+        iPrixTotal += iArticles * 0.09
+        iArticles = iArticles - 20
+    FINSI
+
+    SI iArticles > 0 ALORS
+        iPrixTotal += iArticles * 0.08
+        iArticles -= iArticles
+    FIN SI
+
+    ECRIRE "La facture de votre commande est de " + iPrixTotal + " pour " + " iArticles" + " d'article(s)"
+FIN
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <input type="text" id="text-area-input" placeholder="Entrez le nombre d'articles : ">
+        <input type="text" id="text-area-result" placeholder="Resultat">
+    </section>
+
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_4_4_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_4_4_jquery()">jQuery</button>
+            <button class="exe-btn php">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

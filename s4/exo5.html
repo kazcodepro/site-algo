@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 4.5</title>
+</head>
+<body>
+    <script>
+function Exo_4_5_js() 
+{
+    var iAge, sSexe, sReponse;
+
+    iAge = document.querySelector("#text-area-input").value;
+    sSexe = document.querySelector("#text-area-input2").value;
+    sReponse = "Ne paye pas l'impot";
+
+    if (sSexe == "Femme" && (iAge >= 18 && iAge <= 35)) {
+        sReponse = "Paye l'impot";
+    } else if (sSexe == "Homme" && iAge >= 20) {
+        sReponse = "Paye l'impot";
+    }
+
+    document.querySelector("#text-area-result").value = "JS " + sReponse;
+}
+function Exo_4_5_jquery() 
+{
+    var iAge, sSexe, sReponse;
+
+    iAge = $("#text-area-input").val();
+    sSexe = $("#text-area-input2").val();
+    sReponse = "Ne paye pas l'impot";
+
+    if (sSexe == "Femme" && (iAge >= 18 && iAge <= 35)) {
+        sReponse = "Paye l'impot";
+    } else if (sSexe == "Homme" && iAge >= 20) {
+        sReponse = "Paye l'impot";
+    }
+
+    $("#text-area-result").val("JQUERY " + sReponse);
+}  
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text"> 
+
+Les habitants de Toon’sCity paient l’impôt selon les règles suivantes : <br>
+
+ les hommes de plus de 20 ans paient l’impôt <br>
+ les femmes paient l’impôt si elles ont entre 18 et 35 ans <br>
+ les autres ne paient pas d’impôt <br>
+
+Le programme demandera donc l’âge et le sexe du Toon, et se prononcera donc ensuite sur le fait que l’habitant est 
+imposable ou non. 
+</p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_4_5_js() 
+{
+    var iAge, sSexe, sReponse;
+
+    iAge = document.querySelector("#text-area-input").value;
+    sSexe = document.querySelector("#text-area-input2").value;
+    sReponse = "Ne paye pas l'impot"
+
+    if (sSexe == "Femme" && (iAge >= 18 && iAge <= 35)) {
+        sReponse = "Paye l'impot"
+    } else if (sSexe == "Homme" && iAge >= 20) {
+        sReponse = "Paye l'impot"
+    }
+
+    document.querySelector("#text-area-result").value = "JS " + sReponse;
+}
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_4_5_jquery() 
+{
+    var iAge, sSexe, sReponse;
+
+    iAge = $("#text-area-input").val();
+    sSexe = $("#text-area-input2").val();
+    sReponse = "Ne paye pas l'impot"
+
+    if (sSexe == "Femme" && (iAge >= 18 && iAge <= 35)) {
+        sReponse = "Paye l'impot"
+    } else if (sSexe == "Homme" && iAge >= 20) {
+        sReponse = "Paye l'impot"
+    }
+
+    $("#text-area-result").val("JQUERY " + sReponse);
+}  
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+
+    VARIABLES iAge, EN NUMERIQUE sSexe, sReponse EN CHAINE DE CARACTERES
+
+    ECRIRE "Entrez l'age du Toon : "
+    LIRE iAge 
+    ECRIRE "Entrez le sexe du Toon : "
+    LIRE sSexe
+
+    sReponse = "Ne paye pas l'impot"
+    SI sSexe = "Femme" ET (iAge >= 18 ET iAge <= 35) ALORS
+        sReponse = "Paye l'impot"
+    SINON sSexe = "Homme" ET iAge >= 20 ALORS
+        sReponse = "Paye l'impot"
+    FINSI
+    
+FIN
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <input type="text" id="text-area-input" placeholder="Entrez l'age du Toon : ">
+        <input type="text" id="text-area-input2" placeholder="Entrez le sexe du Toon : ">
+        <input type="text" id="text-area-result" placeholder="Resultat">
+    </section>
+
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_4_5_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_4_5_jquery()">jQuery</button>
+            <button class="exe-btn php">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

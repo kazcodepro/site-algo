@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Exo 2.2</title>
+</head>
+<body>
+    <script>
+function Exo_2_2() 
+{
+var iNombre, iCarre;
+iNombre = document.querySelector("#text-area-input").value;
+iCarre = iNombre * iNombre;
+document.querySelector("#text-area-result").value = `La valeur de ${iNombre} au carré est ${iCarre}`;
+}
+function envoiPHP() {
+    document.formSubmit.submit();
+}
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text">Ecrire un programme qui demande un nombre à l’utilisateur, puis qui calcule et  affiche le carré de ce 
+nombre.  </p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_2_2() 
+{
+    var iNombre, iCarre;
+    iNombre = document.querySelector("#text-area-input").value;
+    iCarre = iNombre * iNombre;
+    document.querySelector("#text-area-result").value = `La valeur de ${iNombre} au carré est ${iCarre}`;
+}
+
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici"></textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici">
+                </textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+VARIABLES iNombre, iCarre EN NUMERIQUE
+
+ECRIRE "Entrez un nombre: "
+LIRE iNombre
+ECRIRE iCarrer = iNombre * iNombre
+
+FIN
+
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <form action="exo2.php" method="POST" name="formSubmit">
+            <input type="text" id="text-area-input" name="text-area-input" placeholder="Entrez un nombre: ">
+        </form>
+        <input type="text" id="text-area-result" name="text-area-result" placeholder="Resultat" value="<?php echo $sMessage; ?>">
+    </section>
+ 
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_2_2()">JavaScript</button>
+            <button class="exe-btn jquery">jQuery</button>
+            <button class="exe-btn php" onClick="envoiPHP()">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

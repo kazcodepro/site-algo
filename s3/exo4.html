@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 3.4</title>
+</head>
+<body>
+    <script>
+function Exo_3_4_js() 
+{
+    var iNombre, sReponse;
+
+    iNombre = document.querySelector("#text-area-input").value
+
+    if (iNombre > 0) {
+        sReponse = "Positif"
+    } else if(iNombre < 0) {
+        sReponse = "Negatif"
+    } else {
+        sReponse = "Neutre"
+    }
+
+    document.querySelector("#text-area-result").value = sReponse;
+}
+function Exo_3_4_jquery() 
+{
+    var iNombre, sReponse;
+
+    iNombre = $("#text-area-input").val()
+  
+    if (iNombre > 0) {
+        sReponse = "Positif"
+    } else if(iNombre < 0) {
+        sReponse = "Negatif"
+    } else {
+        sReponse = "Neutre"
+    }
+
+    $("#text-area-result").val(sReponse);
+}
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text"> Ecrire un algorithme qui demande un nombre à l’utilisateur, et l’informe ensuite si ce nombre est positif ou négatif 
+(on inclut cette fois le traitement du cas où le nombre vaut zéro). </p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_3_4_js() 
+{
+    var iNombre, sReponse;
+
+    iNombre = document.querySelector("#text-area-input").value
+
+    if (iNombre > 0) {
+        sReponse = "Positif"
+    } else if(iNombre < 0) {
+        sReponse = "Negatif"
+    } else {
+        sReponse = "Neutre"
+    }
+
+    document.querySelector("#text-area-result").value = sReponse;
+}
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_3_4_jquery() 
+{
+    var iNombre, sReponse;
+
+    iNombre = $("#text-area-input").val()
+  
+    if (iNombre > 0) {
+        sReponse = "Positif"
+    } else if(iNombre < 0) {
+        sReponse = "Negatif"
+    } else {
+        sReponse = "Neutre"
+    }
+
+    $("#text-area-result").val(sReponse);
+}
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+VARIABLES iNombre EN NUMERIQUE sReponse en CHAINE DE CARACTERES
+
+ECRIRE "Entrez un premier nombre : "
+LIRE iNombre
+
+
+SI iNombre > 0 ALORS
+sReponse = "Positif"
+SINON iNombre < 0 ALORS
+sReponse = "Négatif"
+SINON 
+sReponse = "Neutre"
+FIN SI
+
+FIN
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <input type="text" id="text-area-input" placeholder="Entrez un premier nombre : ">
+        <input type="text" id="text-area-result" placeholder="Resultat">
+    </section>
+ 
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_3_4_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_3_4_jquery()">jQuery</button>
+            <button class="exe-btn php">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

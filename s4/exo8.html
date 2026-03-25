@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 4.7</title>
+</head>
+<body>
+    <script>
+function Exo_4_7_js() 
+{
+    var iAge, iPermis, iAccidents, iMaisons, sCouleur;
+
+    iAge = document.querySelector("#text-area-input").value;
+    iPermis = document.querySelector("#text-area-input2").value;
+    iAccidents = document.querySelector("#text-area-input3").value;
+    iMaisons = document.querySelector("#text-area-input4").value;
+    sCouleur = "Refusé"
+
+    if (iAge > 25) {
+        if (iPermis > 2) {
+            if (iAccidents == 0) {
+                sCouleur = "vert"
+            } else {
+                if (iAccidents == 2) {
+                    sCouleur = "rouge"
+                } else if (iAccidents == 1) {
+                    sCouleur = "orange"
+                }
+            }
+        }
+        else {
+            if (iPermis < 2) {
+                sCouleur = "rouge"
+            } else {
+                sCouleur = "orange"
+            }
+        }
+    } else {
+        if (iPermis > 2) {
+            sCouleur = "rouge"
+        } else {
+            sCouleur = "orange"
+        }
+    }
+
+    if (iMaisons > 5) {
+        if (sCouleur == "vert") {
+            sCouleur = "bleu";
+        } else if (sCouleur == "orange") {
+            sCouleur = "vert";
+        } else if (sCouleur == "rouge") {
+            sCouleur = "orange";
+        }
+    }
+
+
+    document.querySelector("#text-area-result").value = "JS "+ sCouleur;
+}
+ 
+function Exo_4_7_jquery() 
+{
+    var iAge, iPermis, iAccidents, iMaisons, sCouleur;
+
+    iAge = $("#text-area-input").val();
+    iPermis = $("#text-area-input2").val();
+    iAccidents = $("#text-area-input3").val();
+    iMaisons = $("#text-area-input4").val();
+    sCouleur = "Refusé"
+
+    if (iAge > 25) {
+        if (iPermis > 2) {
+            if (iAccidents == 0) {
+                sCouleur = "vert"
+            } else {
+                if (iAccidents == 2) {
+                    sCouleur = "rouge"
+                } else if (iAccidents == 1) {
+                    sCouleur = "orange"
+                }
+            }
+        }
+        else {
+            if (iPermis < 2) {
+                sCouleur = "rouge"
+            } else {
+                sCouleur = "orange"
+            }
+        }
+    } else {
+        if (iPermis > 2) {
+            sCouleur = "rouge"
+        } else {
+            sCouleur = "orange"
+        }
+    }
+
+    if (iMaisons > 5) {
+        if (sCouleur == "vert") {
+            sCouleur = "bleu";
+        } else if (sCouleur == "orange") {
+            sCouleur = "vert";
+        } else if (sCouleur == "rouge") {
+            sCouleur = "orange";
+        }
+    }
+
+
+    $("#text-area-result").val("JQUERY " + sCouleur);
+}
+  
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text">Ecrivez un algorithme qui a près avoir demandé un numéro de jour, de mois et d'année à l'utilisateur, renvoie s'il 
+s'agit ou non d'une date valide. <br><br>
+
+Cet exercice est certes d’un manque d’originalité affligeant, mais après tout, en algorithmique comme ailleurs, il faut 
+connaître ses classiques ! Et quand on a fait cela une fois dans sa vie, on apprécie pleinement l’existence d’un type 
+numérique « date » dans certains langages…). <br><br>
+
+Il n'est sans doute pas inutile de rappeler rapidement que le mois de février compte 28 jours, sauf si l’année est 
+bissextile, auquel cas il en compte 29. L’année est bissextile si elle est divisible par quatre. Toutefois, les années 
+divisibles par 100 ne sont pas bissextiles, mais les années divisibles par 400 le sont.  <br>
+</p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_4_6_js() 
+{
+    var iCandidat1, iCandidat2, iCandidat3, iCandidat4, sReponse;
+
+    iCandidat1 = document.querySelector("#text-area-input").value;
+    iCandidat2 = document.querySelector("#text-area-input2").value;
+    iCandidat3 = document.querySelector("#text-area-input3").value;
+    iCandidat4 = document.querySelector("#text-area-input4").value;
+    sReponse = "Battu"
+
+    if (iCandidat1 >= 50) {
+        sReponse = "Elu"
+    } 
+
+    if (iCandidat1 > iCandidat2) {
+        if (iCandidat1 > iCandidat3) {
+            if (iCandidat1 > iCandidat4) {
+                sReponse = "Elu"
+            }
+        }
+    }
+
+
+    document.querySelector("#text-area-result").value = "JS" + sReponse;
+}   
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_4_6_jquery() 
+{
+    var iCandidat1, iCandidat2, iCandidat3, iCandidat4, sReponse;
+
+    iCandidat1 = $("#text-area-input").val();
+    iCandidat2 = $("#text-area-input2").val();
+    iCandidat3 = $("#text-area-input3").val();
+    iCandidat4 = $("#text-area-input4").val();
+    sReponse = "Battu"
+
+    if (iCandidat1 >= 50) {
+        sReponse = "Elu"
+    } 
+
+    if (iCandidat1 > iCandidat2) {
+        if (iCandidat1 > iCandidat3) {
+            if (iCandidat1 > iCandidat4) {
+                sReponse = "Elu"
+            }
+        }
+    }
+
+
+    $("#text-area-result").val("Jquery" + sReponse);
+}
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+
+    VARIABLES iAge, iPermis, iAccidents, iMaisons EN NUMERIQUE sCouleur en CHAINE DE CARACTERES
+
+    ECRIRE "Entrez votre age : "
+    LIRE iAge
+    ECRIRE "Entrez le temps de l'obtention de votre permis : "
+    LIRE iPermis
+    ECRIRE "Entrez le nombre d'accidents : "
+    LIRE iAccidents
+    ECRIRE "Entrez le temps de l'entrée à la maison : "
+    LIRE iMaisons
+
+    sCouleur = "Refusé"
+    
+    SI iAge > 25 ALORS
+        SI iPermis > 2 ALORS
+            SI iAccidents == 0 ALORS
+                sCouleur = "vert"
+            SINON
+                SI iAccidents == 2 ALORS
+                    sCouleur = "rouge"
+                SINON
+                    sCouleur = "orange"
+            FINSI
+        FINSI
+    SINON
+        SI iPermis > 2 ALORS
+            sCouleur = "orange"
+        SINON
+            sCouleur = "rouge"
+        FINSI
+    FINSI
+
+    SI iMaisons > 5 ALORS
+        SI sCouleur == "vert" ALORS
+            sCouleur = "bleu"
+        SINON sCouleur == "orange" ALORS
+            sCouleur = "vert"
+        SINON sCouleur == "rouge" ALORS
+            sCouleur = "orange"
+        FINSI
+
+FIN
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <input type="text" id="text-area-input" placeholder="Entrez votre age : ">
+        <input type="text" id="text-area-input2" placeholder="Entrez le temps de l'obtention de votre permis : ">
+        <input type="text" id="text-area-input3" placeholder="Entrez le nombre d'accidents : ">
+        <input type="text" id="text-area-input4" placeholder="Entrez le temps de l'entrée à la maison : ">
+        <input type="text" id="text-area-result" placeholder="Resultat">
+    </section>
+
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_4_7_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_4_7_jquery()">jQuery</button>
+            <button class="exe-btn php">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

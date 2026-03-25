@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 4.1</title>
+</head>
+<body>
+    <script>
+        function Exo_4_1_js() 
+{
+    var tutu, toto, tata;
+
+    if (tutu <= toto + 4 && tata != "OK") {
+        tutu++;
+    }
+    else {
+        tutu--;
+    }
+}
+
+function Exo_4_1_jquery() 
+{
+    var tutu, toto, tata;
+
+    if (tutu <= toto + 4 && tata != "OK") {
+        tutu++;
+    }
+    else {
+        tutu--;
+    }
+}
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text">
+            Formulez un algorithme équivalent à l’algorithme suivant : <br>
+            Si Tutu > Toto + 4 OU Tata = "OK" Alors <br>
+            Tutu ← Tutu + 1 <br>
+            Sinon <br>
+            Tutu ← Tutu – 1 <br>
+            Finsi <br>
+</p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_4_1_js() 
+{
+    var tutu, toto, tata;
+
+    if (tutu <= toto + 4 && tata != "OK") {
+        tutu++;
+    }
+    else {
+        tutu--;
+    }
+}
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_4_1_jquery() 
+{
+    var tutu, toto, tata;
+
+    if (tutu <= toto + 4 && tata != "OK") {
+        tutu++;
+    }
+    else {
+        tutu--;
+    }
+}
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT 
+    SI TUTU <= TOTO + 4 ET TATA != "OK" ALORS
+        TUTU = TUTU - 1
+    SINON
+        TUTU = TUTU + 1
+    FINSI
+FIN
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+    </section>
+ 
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_4_1_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_4_1_jquery()">jQuery</button>
+            <button class="exe-btn php">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

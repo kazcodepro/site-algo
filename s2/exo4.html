@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Exo 2.4</title>
+</head>
+<body>
+    <script>
+function Exo_2_4() 
+{
+    var sPhrase1, sPhrase2, sPhrase3, sPhrase4, sphraseFinal;
+
+    sPhrase1 = "belle marquise, vos beaux yeux me font mourir d’amour";
+    sPhrase2 = "vos beaux yeux me font mourir d’amour, belle marquise";
+    sPhrase3 = "vos beaux yeux, belle marquise, me font mourir d’amour";
+    sPhrase4 ="me font mourir d’amour, belle marquise, vos beaux yeux ";
+
+    sphraseFinal = sPhrase1 + "\n" + sPhrase2 +"\n" + sPhrase3+ "\n" + sPhrase4;
+
+    document.querySelector("#text-area-result").value = sphraseFinal;
+}
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text">Ecrire un algorithme utilisant des variables de type chaîne de caractères, et affichant quatre variantes 
+possibles de la célèbre « belle marquise, vos beaux yeux me font mourir d’amour ». On ne se soucie pas de 
+la ponctuation, ni des majuscules. </p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_2_4() 
+{
+    var sPhrase1, sPhrase2, sPhrase3, sPhrase4, sphraseFinal;
+
+    sPhrase1 = "belle marquise, vos beaux yeux me font mourir d’amour";
+    sPhrase2 = "vos beaux yeux me font mourir d’amour, belle marquise";
+    sPhrase3 = "vos beaux yeux, belle marquise, me font mourir d’amour";
+    sPhrase4 ="me font mourir d’amour, belle marquise, vos beaux yeux";
+
+    sphraseFinal = sPhrase1 + "\n" + sPhrase2 +"\n" + sPhrase3+ "\n" + sPhrase4;
+
+    document.querySelector("#text-area-result").value = sphraseFinal;
+}
+
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici"></textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+VARIABLES sPhrase1, sPhrase2, sPhrase3, sPhrase4, sphraseFinal EN CHAINE DE CARACTERES
+
+sPhrase1 = "belle marquise, vos beaux yeux me font mourir d’amour"
+sPhrase2 = "vos beaux yeux me font mourir d’amour, belle marquise"
+sPhrase3 = "vos beaux yeux, belle marquise, me font mourir d’amour"
+sPhrase4 ="me font mourir d’amour, belle marquise, vos beaux yeux "
+
+sPhraseFinal = "sphrase1" + "sPhrase2" + "sPhrase3" + "sPhrase4"
+
+FIN
+
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <textarea rows="4" id="text-area-result" placeholder="Resultat"></textarea>
+    </section>
+ 
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_2_4()">JavaScript</button>
+            <button class="exe-btn jquery">jQuery</button>
+            <button class="exe-btn php">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>
