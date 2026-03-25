@@ -16,9 +16,9 @@ function Exo_3_2_js()
     iNombre1 = document.querySelector("#text-area-input").value
     iNombre2 = document.querySelector("#text-area-input2").value
 
-    if ((iNombre1 * iNombre2) > 0) {
+    if ((iNombre1 > 0 && iNombre2 > 0) || (iNombre1 < 0 && iNombre2 < 0)) {
         sReponse = "Positif"
-    } else {
+    } else if ((iNombre1 > 0 && iNombre2 < 0) || (iNombre1 < 0 && iNombre2 > 0)) {
         sReponse = "Negatif"
     }
 
@@ -31,13 +31,16 @@ function Exo_3_2_jquery()
     iNombre1 = $("#text-area-input").val()
     iNombre2 = $("#text-area-input2").val()
 
-    if ((iNombre1 * iNombre2) > 0) {
+    if ((iNombre1 > 0 && iNombre2 > 0) || (iNombre1 < 0 && iNombre2 < 0)) {
         sReponse = "Positif"
-    } else {
+    } else if ((iNombre1 > 0 && iNombre2 < 0) || (iNombre1 < 0 && iNombre2 > 0)) {
         sReponse = "Negatif"
     }
 
     $("#text-area-result").val(sReponse);
+}
+function envoiePHP() {
+    document.formSubmit.submit();
 }
     </script>
 
@@ -66,9 +69,9 @@ function Exo_3_2_js()
     iNombre1 = document.querySelector("#text-area-input").value
     iNombre2 = document.querySelector("#text-area-input2").value
 
-    if ((iNombre1 * iNombre2) > 0) {
+   if ((iNombre1 > 0 && iNombre2 > 0) || (iNombre1 < 0 && iNombre2 < 0)) {
         sReponse = "Positif"
-    } else {
+    } else if ((iNombre1 > 0 && iNombre2 < 0) || (iNombre1 < 0 && iNombre2 > 0)) {
         sReponse = "Negatif"
     }
 
@@ -84,9 +87,9 @@ function Exo_3_2_jquery()
     iNombre1 = $("#text-area-input").val()
     iNombre2 = $("#text-area-input2").val()
 
-    if ((iNombre1 * iNombre2) > 0) {
+    if ((iNombre1 > 0 && iNombre2 > 0) || (iNombre1 < 0 && iNombre2 < 0)) {
         sReponse = "Positif"
-    } else {
+    } else if ((iNombre1 > 0 && iNombre2 < 0) || (iNombre1 < 0 && iNombre2 > 0)) {
         sReponse = "Negatif"
     }
 
@@ -129,9 +132,11 @@ FIN
  
     <section>
 		<h2>INPUT</h2>
-        <input type="text" id="text-area-input" placeholder="Entrez un premier nombre : ">
-        <input type="text" id="text-area-input2" placeholder="Entrez un second nombre : ">
-        <input type="text" id="text-area-result" placeholder="Resultat">
+        <form action="exo2.php" method="POST" name="formSubmit">
+            <input type="text" name="text-area-input" id="text-area-input" placeholder="Entrez un premier nombre : ">
+            <input type="text" name="text-area-input2" id="text-area-input2" placeholder="Entrez un second nombre : ">
+        </form>
+        <input type="text" id="text-area-result" placeholder="Resultat" value="<?= $sMessage ?>">
     </section>
  
     <section>
@@ -139,7 +144,7 @@ FIN
         <div class="exe-row">
             <button class="exe-btn js" onclick="Exo_3_2_js() ">JavaScript</button>
             <button class="exe-btn jquery" onclick="Exo_3_2_jquery()">jQuery</button>
-            <button class="exe-btn php">PHP</button>
+            <button class="exe-btn php" onclick="envoiePHP()">PHP</button>
         </div>
     </section>
     </div>

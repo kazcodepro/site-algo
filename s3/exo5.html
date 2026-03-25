@@ -45,6 +45,10 @@ function Exo_3_5_jquery()
 
     $("#text-area-result").val(sReponse);
 }
+
+function envoiePHP() {
+    document.formSubmit.submit();
+}
     </script>
 
     <?php include "../commun/nav.html"; ?>
@@ -142,9 +146,11 @@ FIN
  
     <section>
 		<h2>INPUT</h2>
-        <input type="text" id="text-area-input" placeholder="Entrez un premier nombre : ">
-        <input type="text" id="text-area-input2" placeholder="Entrez un second nombre : ">
-        <input type="text" id="text-area-result" placeholder="Resultat">
+        <form action="exo5.php" method="POST" name="formSubmit">
+            <input type="text" id="text-area-input" name="text-area-input" placeholder="Entrez un premier nombre : ">
+            <input type="text" id="text-area-input2" name="text-area-input2" placeholder="Entrez un second nombre : ">
+        </form>
+        <input type="text" id="text-area-result" placeholder="Resultat" value="<?= $sMessage ?>">
     </section>
  
     <section>
@@ -152,7 +158,7 @@ FIN
         <div class="exe-row">
             <button class="exe-btn js" onclick="Exo_3_5_js() ">JavaScript</button>
             <button class="exe-btn jquery" onclick="Exo_3_5_jquery()">jQuery</button>
-            <button class="exe-btn php">PHP</button>
+            <button class="exe-btn php" onclick="envoiePHP()">PHP</button>
         </div>
     </section>
     </div>
