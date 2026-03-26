@@ -59,6 +59,10 @@ function Exo_4_6_jquery()
 
     $("#text-area-result").val("Jquery " + sReponse);
 }  
+
+function envoiePHP() {
+    document.formSubmit.submit();
+}
     </script>
 
     <?php include "../commun/nav.html"; ?>
@@ -189,19 +193,22 @@ FIN
  
     <section>
 		<h2>INPUT</h2>
-        <input type="text" id="text-area-input" placeholder="Entrez le premier candidat : ">
-        <input type="text" id="text-area-input2" placeholder="Entrez le second candidat : ">
-        <input type="text" id="text-area-input3" placeholder="Entrez le troisième candidat : ">
-        <input type="text" id="text-area-input4" placeholder="Entrez le quatrième candidat : ">
-        <input type="text" id="text-area-result" placeholder="Resultat">
+        <form action="exo6.php" method="POST" name="formSubmit">
+            <input type="text" id="text-area-input" name="text-area-input" placeholder="Entrez le premier candidat : ">
+            <input type="text" id="text-area-input2" name="text-area-input2" placeholder="Entrez le second candidat : ">
+            <input type="text" id="text-area-input3" name="text-area-input3" placeholder="Entrez le troisième candidat : ">
+            <input type="text" id="text-area-input4" name="text-area-input4" placeholder="Entrez le quatrième candidat : ">
+        </form>
+        <input type="text" id="text-area-result" placeholder="Resultat" value="<?= $sMessage ?>">
     </section>
+   
 
     <section>
         <h2>Execute</h2>
         <div class="exe-row">
             <button class="exe-btn js" onclick="Exo_4_6_js() ">JavaScript</button>
             <button class="exe-btn jquery" onclick="Exo_4_6_jquery()">jQuery</button>
-            <button class="exe-btn php">PHP</button>
+            <button class="exe-btn php" onclick="envoiePHP()">PHP</button>
         </div>
     </section>
     </div>

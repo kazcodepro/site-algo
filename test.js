@@ -1,39 +1,40 @@
-function Exo_4_7_js() 
+function Exo_4_8_js() 
 {
     var iNbJours, iJour, iMois, iAnnees, bBisextille, sReponse;
 
     iJour = document.querySelector("#text-area-input").value;
     iMois = document.querySelector("#text-area-input2").value;
     iAnnees = document.querySelector("#text-area-input3").value;
-    sCouleur = "Refusé"
 
-    if (iAge > 25) {
-        if (iPermis > 2) {
-            if (iAccidents == 0) {
-                sCouleur = "vert"
-            } else {
-                if (iAccidents == 2) {
-                    sCouleur = "rouge"
-                } else if (iAccidents == 1) {
-                    sCouleur = "orange"
-                }
-            }
-        }
-        else {
-            if (iPermis > 2) {
-                sCouleur = "rouge"
-            } else {
-                sCouleur = "orange"
-            }
-        }
+    if (iMois < 1 || iMois > 12) {
+        sReponse = "Date Invalide";
+    }
+
+    if (iAnnees / 4 * 4 == iAnnees && iAnnees / 100 * 100 != iAnnees) {
+        bBisextille = Vrai;
     } else {
-        if (iPermis > 2) {
-            sCouleur = "orange"
+        bBisextille = Faux;
+    }
+
+    if (iMois == 1 || iMois == 3 || iMois == 5 || iMois == 7 || iMois == 8 || iMois == 10 || iMois == 12) {
+        iNbJours = 31;
+    } else if (iMois == 4 || iMois == 6 || iMois == 9 || iMois == 11) {
+        iNbJours = 30;
+    } else {
+        if (bBisextille) {
+            iNbJours = 29;
         } else {
-            sCouleur = "rouge"
+            iNbJours = 28;
         }
     }
-    document.querySelector("#text-area-result").value = sCouleur;
+
+    if (iJour >= 1 && iJour <= iNbJours) {
+        sReponse = "Date valide";
+    } else {
+        sReponse = "Date invalide";
+    }
+
+     document.querySelector("#text-area-result").value = "JS "+ sReponse;
 }
 
 /*

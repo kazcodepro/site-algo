@@ -110,7 +110,9 @@ function Exo_4_7_jquery()
 
     $("#text-area-result").val("JQUERY " + sCouleur);
 }
-  
+function envoiPHP() {
+    document.formSubmit.submit();
+}
     </script>
 
     <?php include "../commun/nav.html"; ?>
@@ -151,57 +153,107 @@ qu'il n'en a l'air (cela s'appelle faire une analyse !)
             <div class="editor-container">
                 <label>CODE</label>
                 <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
-function Exo_4_6_js() 
+function Exo_4_7_js() 
 {
-    var iCandidat1, iCandidat2, iCandidat3, iCandidat4, sReponse;
+    var iAge, iPermis, iAccidents, iMaisons, sCouleur;
 
-    iCandidat1 = document.querySelector("#text-area-input").value;
-    iCandidat2 = document.querySelector("#text-area-input2").value;
-    iCandidat3 = document.querySelector("#text-area-input3").value;
-    iCandidat4 = document.querySelector("#text-area-input4").value;
-    sReponse = "Battu"
+    iAge = document.querySelector("#text-area-input").value;
+    iPermis = document.querySelector("#text-area-input2").value;
+    iAccidents = document.querySelector("#text-area-input3").value;
+    iMaisons = document.querySelector("#text-area-input4").value;
+    sCouleur = "Refusé"
 
-    if (iCandidat1 >= 50) {
-        sReponse = "Elu"
-    } 
-
-    if (iCandidat1 > iCandidat2) {
-        if (iCandidat1 > iCandidat3) {
-            if (iCandidat1 > iCandidat4) {
-                sReponse = "Elu"
+    if (iAge > 25) {
+        if (iPermis > 2) {
+            if (iAccidents == 0) {
+                sCouleur = "vert"
+            } else {
+                if (iAccidents == 2) {
+                    sCouleur = "rouge"
+                } else if (iAccidents == 1) {
+                    sCouleur = "orange"
+                }
             }
+        }
+        else {
+            if (iPermis < 2) {
+                sCouleur = "rouge"
+            } else {
+                sCouleur = "orange"
+            }
+        }
+    } else {
+        if (iPermis > 2) {
+            sCouleur = "rouge"
+        } else {
+            sCouleur = "orange"
+        }
+    }
+
+    if (iMaisons > 5) {
+        if (sCouleur == "vert") {
+            sCouleur = "bleu";
+        } else if (sCouleur == "orange") {
+            sCouleur = "vert";
+        } else if (sCouleur == "rouge") {
+            sCouleur = "orange";
         }
     }
 
 
-    document.querySelector("#text-area-result").value = "JS" + sReponse;
-}   
+    document.querySelector("#text-area-result").value = "JS "+ sCouleur;
+} 
                 </textarea>
                 <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
-function Exo_4_6_jquery() 
+function Exo_4_7_jquery() 
 {
-    var iCandidat1, iCandidat2, iCandidat3, iCandidat4, sReponse;
+    var iAge, iPermis, iAccidents, iMaisons, sCouleur;
 
-    iCandidat1 = $("#text-area-input").val();
-    iCandidat2 = $("#text-area-input2").val();
-    iCandidat3 = $("#text-area-input3").val();
-    iCandidat4 = $("#text-area-input4").val();
-    sReponse = "Battu"
+    iAge = $("#text-area-input").val();
+    iPermis = $("#text-area-input2").val();
+    iAccidents = $("#text-area-input3").val();
+    iMaisons = $("#text-area-input4").val();
+    sCouleur = "Refusé"
 
-    if (iCandidat1 >= 50) {
-        sReponse = "Elu"
-    } 
-
-    if (iCandidat1 > iCandidat2) {
-        if (iCandidat1 > iCandidat3) {
-            if (iCandidat1 > iCandidat4) {
-                sReponse = "Elu"
+    if (iAge > 25) {
+        if (iPermis > 2) {
+            if (iAccidents == 0) {
+                sCouleur = "vert"
+            } else {
+                if (iAccidents == 2) {
+                    sCouleur = "rouge"
+                } else if (iAccidents == 1) {
+                    sCouleur = "orange"
+                }
             }
+        }
+        else {
+            if (iPermis < 2) {
+                sCouleur = "rouge"
+            } else {
+                sCouleur = "orange"
+            }
+        }
+    } else {
+        if (iPermis > 2) {
+            sCouleur = "rouge"
+        } else {
+            sCouleur = "orange"
+        }
+    }
+
+    if (iMaisons > 5) {
+        if (sCouleur == "vert") {
+            sCouleur = "bleu";
+        } else if (sCouleur == "orange") {
+            sCouleur = "vert";
+        } else if (sCouleur == "rouge") {
+            sCouleur = "orange";
         }
     }
 
 
-    $("#text-area-result").val("Jquery" + sReponse);
+    $("#text-area-result").val("JQUERY " + sCouleur);
 }
                 </textarea>
                 <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
@@ -269,19 +321,22 @@ FIN
  
     <section>
 		<h2>INPUT</h2>
-        <input type="text" id="text-area-input" placeholder="Entrez votre age : ">
-        <input type="text" id="text-area-input2" placeholder="Entrez le temps de l'obtention de votre permis : ">
-        <input type="text" id="text-area-input3" placeholder="Entrez le nombre d'accidents : ">
-        <input type="text" id="text-area-input4" placeholder="Entrez le temps de l'entrée à la maison : ">
-        <input type="text" id="text-area-result" placeholder="Resultat">
+        <form action="exo7.php" method="POST" name="formSubmit">
+            <input type="text" id="text-area-input" name="text-area-input" placeholder="Entrez votre age : ">
+            <input type="text" id="text-area-input2" name="text-area-input2" placeholder="Entrez le temps de l'obtention de votre permis : ">
+            <input type="text" id="text-area-input3" name="text-area-input3" placeholder="Entrez le nombre d'accidents : ">
+            <input type="text" id="text-area-input4" name="text-area-input4" placeholder="Entrez le temps de l'entrée à la maison : ">
+        </form>
+        <input type="text" id="text-area-result" placeholder="Resultat" value="<?= $sMessage ?>">
     </section>
+
 
     <section>
         <h2>Execute</h2>
         <div class="exe-row">
             <button class="exe-btn js" onclick="Exo_4_7_js() ">JavaScript</button>
             <button class="exe-btn jquery" onclick="Exo_4_7_jquery()">jQuery</button>
-            <button class="exe-btn php">PHP</button>
+            <button class="exe-btn php" onclick="envoiPHP()">PHP</button>
         </div>
     </section>
     </div>
