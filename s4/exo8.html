@@ -11,106 +11,92 @@
     <script>
 function Exo_4_8_js() 
 {
-    var iAge, iPermis, iAccidents, iMaisons, sCouleur;
+    var iNbJours, iJour, iMois, iAnnees, bBisextille, sReponse;
 
-    iAge = document.querySelector("#text-area-input").value;
-    iPermis = document.querySelector("#text-area-input2").value;
-    iAccidents = document.querySelector("#text-area-input3").value;
-    iMaisons = document.querySelector("#text-area-input4").value;
-    sCouleur = "Refusé"
+    iJour = document.querySelector("#text-area-input").value;
+    iMois = document.querySelector("#text-area-input2").value;
+    iAnnees = document.querySelector("#text-area-input3").value;
 
-    if (iAge > 25) {
-        if (iPermis > 2) {
-            if (iAccidents == 0) {
-                sCouleur = "vert"
-            } else {
-                if (iAccidents == 2) {
-                    sCouleur = "rouge"
-                } else if (iAccidents == 1) {
-                    sCouleur = "orange"
-                }
-            }
-        }
-        else {
-            if (iPermis < 2) {
-                sCouleur = "rouge"
-            } else {
-                sCouleur = "orange"
-            }
-        }
+    if (iMois < 1 || iMois > 12  ) {
+        sReponse = "Date Invalide";
+    }
+
+    if (iAnnees / 4 * 4 == iAnnees && iAnnees / 100 * 100 != iAnnees) {
+        bBisextille = true;
     } else {
-        if (iPermis > 2) {
-            sCouleur = "rouge"
+        bBisextille = false;
+    }
+
+    if (iMois == 1 || iMois == 3 || iMois == 5 || iMois == 7 || iMois == 8 || iMois == 10 || iMois == 12) {
+        iNbJours = 31;
+    } else if (iMois == 4 || iMois == 6 || iMois == 9 || iMois == 11) {
+        iNbJours = 30;
+    } else {
+        if (bBisextille) {
+            iNbJours = 29;
         } else {
-            sCouleur = "orange"
+            iNbJours = 28;
         }
     }
 
-    if (iMaisons > 5) {
-        if (sCouleur == "vert") {
-            sCouleur = "bleu";
-        } else if (sCouleur == "orange") {
-            sCouleur = "vert";
-        } else if (sCouleur == "rouge") {
-            sCouleur = "orange";
-        }
+    if (iJour >= 1 && iJour <= iNbJours) {
+        sReponse = "Date valide";
+    } else {
+        sReponse = "Date invalide";
     }
 
+    if (iAnnees > 2025) {
+        sReponse = "Date invalide";
+    }
 
-    document.querySelector("#text-area-result").value = "JS "+ sCouleur;
+    document.querySelector("#text-area-result").value = "JS "+ sReponse;
 }
  
 function Exo_4_8_jquery() 
 {
-    var iAge, iPermis, iAccidents, iMaisons, sCouleur;
+    var iNbJours, iJour, iMois, iAnnees, bBisextille, sReponse;
 
-    iAge = $("#text-area-input").val();
-    iPermis = $("#text-area-input2").val();
-    iAccidents = $("#text-area-input3").val();
-    iMaisons = $("#text-area-input4").val();
-    sCouleur = "Refusé"
+    iJour = $("#text-area-input").val();
+    iMois = $("#text-area-input2").val();
+    iAnnees = $("#text-area-input3").val();
 
-    if (iAge > 25) {
-        if (iPermis > 2) {
-            if (iAccidents == 0) {
-                sCouleur = "vert"
-            } else {
-                if (iAccidents == 2) {
-                    sCouleur = "rouge"
-                } else if (iAccidents == 1) {
-                    sCouleur = "orange"
-                }
-            }
-        }
-        else {
-            if (iPermis < 2) {
-                sCouleur = "rouge"
-            } else {
-                sCouleur = "orange"
-            }
-        }
+    if (iMois < 1 || iMois > 12  ) {
+        sReponse = "Date Invalide";
+    }
+
+    if (iAnnees / 4 * 4 == iAnnees && iAnnees / 100 * 100 != iAnnees) {
+        bBisextille = true;
     } else {
-        if (iPermis > 2) {
-            sCouleur = "rouge"
+        bBisextille = false;
+    }
+
+    if (iMois == 1 || iMois == 3 || iMois == 5 || iMois == 7 || iMois == 8 || iMois == 10 || iMois == 12) {
+        iNbJours = 31;
+    } else if (iMois == 4 || iMois == 6 || iMois == 9 || iMois == 11) {
+        iNbJours = 30;
+    } else {
+        if (bBisextille) {
+            iNbJours = 29;
         } else {
-            sCouleur = "orange"
+            iNbJours = 28;
         }
     }
 
-    if (iMaisons > 5) {
-        if (sCouleur == "vert") {
-            sCouleur = "bleu";
-        } else if (sCouleur == "orange") {
-            sCouleur = "vert";
-        } else if (sCouleur == "rouge") {
-            sCouleur = "orange";
-        }
+    if (iJour >= 1 && iJour <= iNbJours) {
+        sReponse = "Date valide";
+    } else {
+        sReponse = "Date invalide";
     }
 
+    if (iAnnees > 2025) {
+        sReponse = "Date invalide";
+    }
 
-    $("#text-area-result").val("JQUERY " + sCouleur);
+    $("#text-area-result").val("JQUERY "+ sReponse);
 }
-  
+function envoiePHP() {
+    document.formSubmit.submit();
+}
     </script>
 
     <?php include "../commun/nav.html"; ?>
@@ -139,57 +125,91 @@ divisibles par 100 ne sont pas bissextiles, mais les années divisibles par 400 
             <div class="editor-container">
                 <label>CODE</label>
                 <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
-function Exo_4_6_js() 
+function Exo_4_8_js() 
 {
-    var iCandidat1, iCandidat2, iCandidat3, iCandidat4, sReponse;
+    var iNbJours, iJour, iMois, iAnnees, bBisextille, sReponse;
 
-    iCandidat1 = document.querySelector("#text-area-input").value;
-    iCandidat2 = document.querySelector("#text-area-input2").value;
-    iCandidat3 = document.querySelector("#text-area-input3").value;
-    iCandidat4 = document.querySelector("#text-area-input4").value;
-    sReponse = "Battu"
+    iJour = document.querySelector("#text-area-input").value;
+    iMois = document.querySelector("#text-area-input2").value;
+    iAnnees = document.querySelector("#text-area-input3").value;
 
-    if (iCandidat1 >= 50) {
-        sReponse = "Elu"
-    } 
+    if (iMois < 1 || iMois > 12  ) {
+        sReponse = "Date Invalide";
+    }
 
-    if (iCandidat1 > iCandidat2) {
-        if (iCandidat1 > iCandidat3) {
-            if (iCandidat1 > iCandidat4) {
-                sReponse = "Elu"
-            }
+    if (iAnnees / 4 * 4 == iAnnees && iAnnees / 100 * 100 != iAnnees) {
+        bBisextille = true;
+    } else {
+        bBisextille = false;
+    }
+
+    if (iMois == 1 || iMois == 3 || iMois == 5 || iMois == 7 || iMois == 8 || iMois == 10 || iMois == 12) {
+        iNbJours = 31;
+    } else if (iMois == 4 || iMois == 6 || iMois == 9 || iMois == 11) {
+        iNbJours = 30;
+    } else {
+        if (bBisextille) {
+            iNbJours = 29;
+        } else {
+            iNbJours = 28;
         }
     }
 
+    if (iJour >= 1 && iJour <= iNbJours) {
+        sReponse = "Date valide";
+    } else {
+        sReponse = "Date invalide";
+    }
 
-    document.querySelector("#text-area-result").value = "JS" + sReponse;
-}   
+    if (iAnnees > 2025) {
+        sReponse = "Date invalide";
+    }
+
+    document.querySelector("#text-area-result").value = "JS "+ sReponse;
+}  
                 </textarea>
                 <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
-function Exo_4_6_jquery() 
+function Exo_4_8_jquery() 
 {
-    var iCandidat1, iCandidat2, iCandidat3, iCandidat4, sReponse;
+    var iNbJours, iJour, iMois, iAnnees, bBisextille, sReponse;
 
-    iCandidat1 = $("#text-area-input").val();
-    iCandidat2 = $("#text-area-input2").val();
-    iCandidat3 = $("#text-area-input3").val();
-    iCandidat4 = $("#text-area-input4").val();
-    sReponse = "Battu"
+    iJour = $("#text-area-input").val();
+    iMois = $("#text-area-input2").val();
+    iAnnees = $("#text-area-input3").val();
 
-    if (iCandidat1 >= 50) {
-        sReponse = "Elu"
-    } 
+    if (iMois < 1 || iMois > 12  ) {
+        sReponse = "Date Invalide";
+    }
 
-    if (iCandidat1 > iCandidat2) {
-        if (iCandidat1 > iCandidat3) {
-            if (iCandidat1 > iCandidat4) {
-                sReponse = "Elu"
-            }
+    if (iAnnees / 4 * 4 == iAnnees && iAnnees / 100 * 100 != iAnnees) {
+        bBisextille = true;
+    } else {
+        bBisextille = false;
+    }
+
+    if (iMois == 1 || iMois == 3 || iMois == 5 || iMois == 7 || iMois == 8 || iMois == 10 || iMois == 12) {
+        iNbJours = 31;
+    } else if (iMois == 4 || iMois == 6 || iMois == 9 || iMois == 11) {
+        iNbJours = 30;
+    } else {
+        if (bBisextille) {
+            iNbJours = 29;
+        } else {
+            iNbJours = 28;
         }
     }
 
+    if (iJour >= 1 && iJour <= iNbJours) {
+        sReponse = "Date valide";
+    } else {
+        sReponse = "Date invalide";
+    }
 
-    $("#text-area-result").val("Jquery" + sReponse);
+    if (iAnnees > 2025) {
+        sReponse = "Date invalide";
+    }
+
+    $("#text-area-result").val("JQUERY "+ sReponse);
 }
                 </textarea>
                 <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
@@ -257,19 +277,21 @@ FIN
  
     <section>
 		<h2>INPUT</h2>
-        <input type="text" id="text-area-input" placeholder="Entrez votre age : ">
-        <input type="text" id="text-area-input2" placeholder="Entrez le temps de l'obtention de votre permis : ">
-        <input type="text" id="text-area-input3" placeholder="Entrez le nombre d'accidents : ">
-        <input type="text" id="text-area-input4" placeholder="Entrez le temps de l'entrée à la maison : ">
-        <input type="text" id="text-area-result" placeholder="Resultat">
+        <form action="exo8.php" method="POST" name="formSubmit">
+            <input type="text" id="text-area-input" name="text-area-input" placeholder="Entrez le jour : ">
+            <input type="text" id="text-area-input2" name="text-area-input2" placeholder="Entrez le mois : ">
+            <input type="text" id="text-area-input3" name="text-area-input3" placeholder="Entrez l'année : ">
+        </form>
+        <input type="text" id="text-area-result" placeholder="Resultat" value="<?= $sMessage ?>">
     </section>
+    
 
     <section>
         <h2>Execute</h2>
         <div class="exe-row">
-            <button class="exe-btn js" onclick="Exo_4_7_js() ">JavaScript</button>
-            <button class="exe-btn jquery" onclick="Exo_4_7_jquery()">jQuery</button>
-            <button class="exe-btn php">PHP</button>
+            <button class="exe-btn js" onclick="Exo_4_8_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_4_8_jquery()">jQuery</button>
+            <button class="exe-btn php" onclick="envoiePHP()">PHP</button>
         </div>
     </section>
     </div>
