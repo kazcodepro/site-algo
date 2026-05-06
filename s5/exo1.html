@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 5.1</title>
+</head>
+<body>
+    <script>
+function Exo_5_1_js() 
+{
+    var iNombre, sReponse;
+
+    iNombre = document.querySelector("#text-area-input").value;
+
+    if (iNombre >= 1 && iNombre <= 3) {
+        sReponse = "Valide"
+    } else {
+        sReponse = "Veuillez entrer un nombre entre 1 et 3"
+    }
+    
+    document.querySelector("#text-area-result").value = sReponse;
+}
+ 
+function Exo_5_1_jquery() 
+{
+      var iNombre, sReponse;
+
+    iNombre = $("#text-area-input").val();
+
+    if (iNombre >= 1 && iNombre <= 3) {
+        sReponse = "Valide"
+    } else {
+        sReponse = "Veuillez entrer un nombre entre 1 et 3"
+    }
+    
+    $("#text-area-result").val("jquery" + sReponse);
+}
+function envoiePHP() {
+    document.formSubmit.submit();
+}  
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text"> 
+Ecrire un algorithme qui demande à l’utilisateur un nombre compris entre 1 et 3 jusqu’à ce que la réponse 
+convienne. 
+</p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_5_1_js() 
+{
+    var iNombre, sReponse;
+
+    iNombre = document.querySelector("#text-area-input").value;
+
+    if (iNombre >= 1 && iNombre <= 3) {
+        sReponse = "Valide"
+    } else {
+        sReponse = "Veuillez entrer un nombre entre 1 et 3"
+    }
+    
+    document.querySelector("#text-area-result").value = sReponse;
+}  
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_5_1_jquery() 
+{
+      var iNombre, sReponse;
+
+    iNombre = $("#text-area-input").val();
+
+    if (iNombre >= 1 && iNombre <= 3) {
+        sReponse = "Valide"
+    } else {
+        sReponse = "Veuillez entrer un nombre entre 1 et 3"
+    }
+    
+    $("#text-area-result").val("jquery" + sReponse);
+}
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+    VARIABLES iNombre
+    ECRIRE "Entrez un nombre: "
+    LIRE iNombre
+
+    TANT QUE iNombre > 1 ET iNombre < 3 
+        ECRIRE "Veuillez entrer un nombre entre 1 et 3"
+        LIRE iNombre
+    FINTANTQUE
+FIN
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <form action="exo1.php" method="POST" name="formSubmit">
+            <input type="text" id="text-area-input" name="text-area-input" placeholder="Entrez un nombre entre 1 et 3: ">
+        </form>
+        <input type="text" id="text-area-result" name="text-area-result" placeholder="Resultat" value="<?= $sMessage ?>">
+    </section>
+
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_5_1_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_5_1_jquery()">jQuery</button>
+            <button class="exe-btn php" onclick="envoiePHP()">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>

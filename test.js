@@ -1,84 +1,116 @@
-function Exo_4_7_js() 
+
+
+function Exo_5_4_js() 
 {
-    var iNbJours, iJour, iMois, iAnnees, bBisextille, sReponse;
+    var iNombre, iNombreFinal;
 
-    iJour = document.querySelector("#text-area-input").value;
-    iMois = document.querySelector("#text-area-input2").value;
-    iAnnees = document.querySelector("#text-area-input3").value;
-    sCouleur = "Refusé"
+    iNombre = document.querySelector("#text-area-input");
 
-    if (iAge > 25) {
-        if (iPermis > 2) {
-            if (iAccidents == 0) {
-                sCouleur = "vert"
-            } else {
-                if (iAccidents == 2) {
-                    sCouleur = "rouge"
-                } else if (iAccidents == 1) {
-                    sCouleur = "orange"
-                }
-            }
-        }
-        else {
-            if (iPermis > 2) {
-                sCouleur = "rouge"
-            } else {
-                sCouleur = "orange"
-            }
-        }
-    } else {
-        if (iPermis > 2) {
-            sCouleur = "orange"
-        } else {
-            sCouleur = "rouge"
+    if (iNombre) {
+        for (let i; iNombre < iNombre + 10; i++) {
+            console.log(i);
         }
     }
-    document.querySelector("#text-area-result").value = sCouleur;
 }
 
+
 /*
+
+ALGORITHME 5.6
+DEBUT
+    VARIABLES iNombre, sReponse
+    ECRIRE "Entrez un nombre: "
+    LIRE iNombre
+
+    POUR i ← i à iNombre PAS 1
+        sReponse =  sReponse + i 
+    Suivant
+
+    ECRIRE sReponse
+FIN
+
+ALGORITHME 5.7
+DEBUT
+    VARIABLES iNombre, sReponse
+    ECRIRE "Entrez un nombre: "
+    LIRE iNombre
+
+    POUR i ← i à iNombre PAS 1
+        sReponse =  sReponse * i 
+    Suivant
+
+    ECRIRE sReponse
+FIN
  
 
+ALGORITHME 5.8 A
+
 DEBUT
-    VARIABLES iNbJours, iJour, iMois, iAnnees EN NUMERIQUE sReponse EN CHAINE DE CARACTERES, bBisextille EN BOOLEAN
+    VARIABLES iNombre, iNombreSaisi
+    iNombre = 0
 
-    ECRIRE "Entrez le jour : "
-    LIRE iJour
-    ECRIRE "Entrez le mois : "
-    LIRE iMois 
-    ECRIRE "Entrez l'année : "
-    LIRE iAnnees
+    POUR i ← i à i + 20 PAS 1
+         ECRIRE "Entrez un nombre: "
+         LIRE iNombreSaisi
 
-
-    SI (iMois < 1 OU iMois > 12) ALORS
-        sReponse = "Date Invalide"
-    FINSI
-
-    SI iAnnees / 4 * 4 == iAnnees ET iAnnees / 100 * 100 != iAnnees
-        bBisextille = Vrai
-    SINON
-        bBisextille = Faux
-    FINSI
-
-    SI (iMois == 1 OU iMois == 3 OU iMois == 5 OU iMois == 7 OU iMois == 8 OU iMois == 10 OU iMois == 12) ALORS
-        iNbjours = 31
-    SINON (iMois == 4 OU iMois == 6 OU iMois == 9 OU iMois == 11) ALORS
-        iNbjours = 30
-    SINON
-        SI (bBisextille) ALORS
-            iNbJours = 29
-        SINON
-            iNbJours = 28
-        FINSI
-    FINSI
-
-    SI (iJour >= 1 ET iJour <= nbJours) ALORS
-        sReponse = "Date valide"
-    SINON
-        sReponse = "Date invalide"
-    FINSI
-
+         SI iNombreSaisi > iNombre ALORS
+            iNombre = iNombreSaisi
+         FINSI
+    Suivant
 FIN
+
+ALGORITHME 5.8 B
+
+DEBUT
+    VARIABLES iNombre, iPosition ,iNombreSaisi
+    iNombre = 0
+
+    POUR i ← i à i + 20 PAS 1
+         ECRIRE "Entrez un nombre: "
+         LIRE iNombreSaisi
+
+         SI iNombreSaisi > iNombre ALORS
+            iNombre = iNombreSaisi
+            iPosition = i
+         FINSI
+    Suivant
+FIN
+
+ALGORITHME 5.9
+
+DEBUT
+    VARIABLES iNombre, iPosition, iteration ,iNombreSaisi
+    iNombre = 0
+
+    REPETER
+         ECRIRE "Entrez un nombre: "
+         LIRE iNombreSaisi
+         iteration = iteration + 1
+
+         SI iNombreSaisi > iNombre ALORS
+            iNombre = iNombreSaisi
+            iPosition = iteration
+         FINSI
+    JUSQU'A iNombreSaisi == 0
+FIN
+
+ALGORITHME 5.10
+
+DEBUT
+    VARIABLES iNombre, iPosition ,iNombreSaisi
+    iNombre = 0
+
+    POUR i ← i à i + 20 PAS 1
+         ECRIRE "Entrez un nombre: "
+         LIRE iNombreSaisi
+
+         SI iNombreSaisi > iNombre ALORS
+            iNombre = iNombreSaisi
+            iPosition = i
+         FINSI
+    Suivant
+FIN
+
 
 */
 

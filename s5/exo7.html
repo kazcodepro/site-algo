@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-4.0.0.js"></script>
+    <title>Exo 5.7</title>
+</head>
+<body>
+    <script>
+function Exo_5_7_js() 
+{
+    var iNombre, iFinal,sReponse;
+    sReponse = 1
+
+    iNombre = document.querySelector("#text-area-input").value;
+
+    if (iNombre) {
+        for (let i = 1; i <= iNombre; i++) {
+            sReponse = sReponse * i
+        }
+    }
+
+    document.querySelector("#text-area-result").value = sReponse
+}
+ 
+function Exo_5_7_jquery() 
+{
+    var iNombre, iFinal,sReponse;
+    sReponse = 1
+
+    iNombre = $("#text-area-input").val();
+
+    if (iNombre) {
+        for (let i = 1; i <= iNombre; i++) {
+            sReponse = sReponse * i
+        }
+    }
+
+    $("#text-area-result").val(sReponse);
+}
+function envoiePHP() {
+    document.formSubmit.submit();
+}  
+    </script>
+
+    <?php include "../commun/nav.html"; ?>
+
+    <div class="container">
+        <?php include "../commun/header.html"; ?>
+
+        <section>
+            <h2>Énoncé</h2>
+            <p id="statement-text"> 
+Ecrire un algorithme qui demande un nombre de départ, et qui calcule sa factorielle. <br>
+
+NB : la factorielle de 8, notée 8 !, vaut  <br>
+
+1 x 2 x 3 x 4 x 5 x 6 x 7 x 8 <br>
+</p>
+        </section>
+
+        <section>
+        <h2>TEXT AREA</h2>
+        <div class="editor-grid">
+            <div class="editor-container">
+                <label>CODE</label>
+                <textarea id="text-area" class="js" rows="12" placeholder="// code ici">
+function Exo_5_6_js() 
+{
+    var iNombre, iFinal,sReponse;
+    sReponse = 0
+
+    iNombre = document.querySelector("#text-area-input").value;
+
+    if (iNombre) {
+        for (let i = 1; i <= iNombre; i++) {
+            sReponse = sReponse * i
+        }
+    }
+
+    document.querySelector("#text-area-result").value = sReponse
+} 
+                </textarea>
+                <textarea id="text-area" class="jquery" rows="12" placeholder="// code ici">
+function Exo_5_6_jquery() 
+{
+    var iNombre, iFinal,sReponse;
+    sReponse = 0
+
+    iNombre = $("#text-area-input").val();
+
+    if (iNombre) {
+        for (let i = 1; i <= iNombre; i++) {
+            sReponse = sReponse * i
+        }
+    }
+
+    $("#text-area-result").val(sReponse);
+}
+                </textarea>
+                <textarea id="text-area" class="php" rows="12" placeholder="// code ici"></textarea>
+            </div>
+            <div class="editor-container2">
+                <label>Pseudo-code</label>
+                <textarea id="pseudo-code" rows="12" placeholder="// algo ici">
+DEBUT
+    VARIABLES iNombre, sReponse
+    ECRIRE "Entrez un nombre: "
+    LIRE iNombre
+
+    POUR i ← i à iNombre PAS 1
+        sReponse =  sReponse * i 
+    Suivant
+
+    ECRIRE sReponse
+FIN
+
+                </textarea>
+            </div>
+        </div>
+    </section>
+ 
+    <section>
+        <h2>CODE</h2>
+        <div class="buttons-row" id="code-buttons">
+            <button class="code-btn" id="js" onclick="">JavaScript</button>
+            <button class="code-btn" id="jquery" >jQuery</button>
+            <button class="code-btn" id="php" >PHP</button>
+        </div>
+    </section>
+ 
+    <section>
+		<h2>INPUT</h2>
+        <form action="exo7.php" method="POST" name="formSubmit">
+            <input type="text" id="text-area-input" name="text-area-input" placeholder="Entrez un nombre entre 10 et 20: ">
+        </form>
+        <input type="text" id="text-area-result" name="text-area-result" placeholder="Resultat" value="<?= $sMessage ?>">
+    </section>
+
+    <section>
+        <h2>Execute</h2>
+        <div class="exe-row">
+            <button class="exe-btn js" onclick="Exo_5_7_js() ">JavaScript</button>
+            <button class="exe-btn jquery" onclick="Exo_5_7_jquery()">jQuery</button>
+            <button class="exe-btn php" onclick="envoiePHP()">PHP</button>
+        </div>
+    </section>
+    </div>
+    <script src="../js/exo.js"></script>
+</body>
+</html>
